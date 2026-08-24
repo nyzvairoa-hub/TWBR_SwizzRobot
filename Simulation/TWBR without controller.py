@@ -62,7 +62,7 @@ def pendulum_update(t, x, u, params):
     
     v11 = (2*l*l*r*r)/(d*d)*m_b*np.sin(q[2])*np.cos(q[2])*q_dot[2]*(q_dot[0]-q_dot[1]) - 1/2*m_b*l*r*np.sin(q[2])*q_dot[2]
     v21 = (2*l*l*r*r)/(d*d)*m_b*np.sin(q[2])*np.cos(q[2])*q_dot[2]*(q_dot[1]-q_dot[0]) - 1/2*m_b*l*r*np.sin(q[2])*q_dot[2]
-    v31 = -(l*l*r*r)/(d*d)*m_b*np.sin(q[2])*np.cos(q[2])*((q_dot[0]-q_dot[1])**2) + m_b*l*gra*np.sin(q[2])
+    v31 = -(l*l*r*r)/(d*d)*m_b*np.sin(q[2])*np.cos(q[2])*((q_dot[0]-q_dot[1])**2) - m_b*l*gra*np.sin(q[2]) # keep the sign -, not +
     
     M_q = np.array([[m11, m12, m13], [m21, m22, m23], [m31, m32, m33]])
     v_q_qdot = np.array([v11, v21, v31])
